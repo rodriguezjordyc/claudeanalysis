@@ -1,0 +1,173 @@
+Country,Region,country_id
+Australia,APAC,AU
+Bangladesh,APAC,BD
+Bhutan,APAC,BT
+Brunei,APAC,BN
+Cambodia,APAC,KH
+Fiji,APAC,FJ
+French Polynesia,APAC,PF
+India,APAC,IN
+Indonesia,APAC,ID
+Japan,APAC,JP
+Kyrgyzstan,APAC,KG
+Laos,APAC,LA
+Malaysia,APAC,MY
+Maldives,APAC,MV
+Mongolia,APAC,MN
+Nepal,APAC,NP
+New Caledonia,APAC,NC
+New Zealand,APAC,NZ
+Pakistan,APAC,PK
+Papua New Guinea,APAC,PG
+Philippines,APAC,PH
+Reunion,APAC,RE
+Singapore,APAC,SG
+South Korea,APAC,KR
+Sri Lanka,APAC,LK
+Taiwan,APAC,TW
+Tajikistan,APAC,TJ
+Thailand,APAC,TH
+Timor Leste,APAC,TL
+Turkmenistan,APAC,TM
+Uzbekistan,APAC,UZ
+Vietnam,APAC,VN
+Albania,Europe,AL
+Andorra,Europe,AD
+Armenia,Europe,AM
+Austria,Europe,AT
+Azerbaijan,Europe,AZ
+Belgium,Europe,BE
+Bosnia and Herzegovina,Europe,BA
+Bulgaria,Europe,BG
+Croatia,Europe,HR
+Cyprus,Europe,CY
+Czechia,Europe,CZ
+Denmark,Europe,DK
+Estonia,Europe,EE
+Finland,Europe,FI
+France,Europe,FR
+Georgia,Europe,GE
+Germany,Europe,DE
+Greece,Europe,GR
+Guernsey,Europe,GG
+Hungary,Europe,HU
+Iceland,Europe,IS
+Ireland,Europe,IE
+Isle of Man,Europe,IM
+Italy,Europe,IT
+Jersey,Europe,JE
+Kazakhstan,Europe,KZ
+Kosovo,Europe,XK
+Latvia,Europe,LV
+Liechtenstein,Europe,LI
+Lithuania,Europe,LT
+Luxembourg,Europe,LU
+Malta,Europe,MT
+Moldova,Europe,MD
+Monaco,Europe,MC
+Montenegro,Europe,ME
+North Macedonia,Europe,MK
+Norway,Europe,NO
+Poland,Europe,PL
+Portugal,Europe,PT
+Romania,Europe,RO
+San Marino,Europe,SM
+Serbia,Europe,RS
+Slovakia,Europe,SK
+Slovenia,Europe,SI
+Spain,Europe,ES
+Sweden,Europe,SE
+Switzerland,Europe,CH
+The Netherlands,Europe,NL
+Ukraine,Europe,UA
+United Kingdom,Europe,GB
+Argentina,Latin America,AR
+Bahamas,Latin America,BS
+Barbados,Latin America,BB
+Belize,Latin America,BZ
+Bolivia,Latin America,BO
+Brazil,Latin America,BR
+Cayman Islands,Latin America,KY
+Chile,Latin America,CL
+Colombia,Latin America,CO
+Costa Rica,Latin America,CR
+Curacao,Latin America,CW
+Dominica,Latin America,DM
+Dominican Republic,Latin America,DO
+Ecuador,Latin America,EC
+El Salvador,Latin America,SV
+French Guiana,Latin America,GF
+Grenada,Latin America,GD
+Guadeloupe,Latin America,GP
+Guatemala,Latin America,GT
+Guyana,Latin America,GY
+Haiti,Latin America,HT
+Honduras,Latin America,HN
+Jamaica,Latin America,JM
+Martinique,Latin America,MQ
+Mexico,Latin America,MX
+Panama,Latin America,PA
+Paraguay,Latin America,PY
+Peru,Latin America,PE
+Puerto Rico,Latin America,PR
+Saint Lucia,Latin America,LC
+Suriname,Latin America,SR
+Trinidad and Tobago,Latin America,TT
+Uruguay,Latin America,UY
+Algeria,Middle East & Africa,DZ
+Angola,Middle East & Africa,AO
+Bahrain,Middle East & Africa,BH
+Benin,Middle East & Africa,BJ
+Botswana,Middle East & Africa,BW
+Burkina Faso,Middle East & Africa,BF
+Burundi,Middle East & Africa,BI
+Cabo Verde,Middle East & Africa,CV
+Cameroon,Middle East & Africa,CM
+Chad,Middle East & Africa,TD
+Djibouti,Middle East & Africa,DJ
+Egypt,Middle East & Africa,EG
+Eswatini,Middle East & Africa,SZ
+Gabon,Middle East & Africa,GA
+Gambia,Middle East & Africa,GM
+Ghana,Middle East & Africa,GH
+Guinea,Middle East & Africa,GN
+Iraq,Middle East & Africa,IQ
+Israel,Middle East & Africa,IL
+Ivory Coast,Middle East & Africa,CI
+Jordan,Middle East & Africa,JO
+Kenya,Middle East & Africa,KE
+Kuwait,Middle East & Africa,KW
+Lebanon,Middle East & Africa,LB
+Lesotho,Middle East & Africa,LS
+Liberia,Middle East & Africa,LR
+Madagascar,Middle East & Africa,MG
+Malawi,Middle East & Africa,MW
+Mauritania,Middle East & Africa,MR
+Mauritius,Middle East & Africa,MU
+Morocco,Middle East & Africa,MA
+Mozambique,Middle East & Africa,MZ
+Niger,Middle East & Africa,NE
+Nigeria,Middle East & Africa,NG
+Oman,Middle East & Africa,OM
+Palestinian Territory,Middle East & Africa,PS
+Qatar,Middle East & Africa,QA
+Republic of the Congo,Middle East & Africa,CG
+Rwanda,Middle East & Africa,RW
+Saudi Arabia,Middle East & Africa,SA
+Senegal,Middle East & Africa,SN
+Seychelles,Middle East & Africa,SC
+Sierra Leone,Middle East & Africa,SL
+South Africa,Middle East & Africa,ZA
+Tanzania,Middle East & Africa,TZ
+Togo,Middle East & Africa,TG
+Tunisia,Middle East & Africa,TN
+Turkey,Middle East & Africa,TR
+Uganda,Middle East & Africa,UG
+United Arab Emirates,Middle East & Africa,AE
+Zambia,Middle East & Africa,ZM
+Zimbabwe,Middle East & Africa,ZW
+Bermuda,North America,BM
+Canada,North America,CA
+Guam,North America,GU
+United States,North America,US
+,Unknown,

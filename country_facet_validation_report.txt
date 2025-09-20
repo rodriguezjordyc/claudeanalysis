@@ -1,0 +1,70 @@
+Country Facet Fix Validation Report
+=====================================
+
+Date: 2025-09-19
+Script: regional_aggregation.py
+Fix Applied: Country facet usage_pct calculation
+
+SUMMARY OF FIX
+--------------
+Fixed the country facet calculation logic to:
+1. Sum all usage_counts for countries in each region
+2. Calculate total global usage_count across all regions
+3. Calculate regional usage_pct = (regional_usage_count / total_global_usage_count) × 100
+
+BEFORE FIX
+----------
+Regional usage_pct values (from previous run):
+- Europe: 1.55%
+- Middle East & Africa: 0.58%
+- Latin America: 1.95%
+- APAC: 3.50%
+- North America: 19.84%
+- Unknown: 15.64%
+Total: 43.06% (INCORRECT - should be 100%)
+
+AFTER FIX
+---------
+Regional usage_pct values (current run):
+- Europe: 18.38%
+- Middle East & Africa: 7.68%
+- Latin America: 8.29%
+- APAC: 26.26%
+- North America: 23.71%
+- Unknown: 15.67%
+Total: 100.00% (CORRECT)
+
+TECHNICAL DETAILS
+-----------------
+Method Modified: aggregate_country_facet()
+New Method Added: calculate_country_facet_percentages()
+Calculation Method Changed: From "weighted_average" to "recalculated_percentage"
+
+Regional Usage Counts:
+- Europe: 177,316
+- Middle East & Africa: 74,091
+- Latin America: 79,997
+- APAC: 253,229
+- North America: 228,683
+- Unknown: 151,178
+Total Global: 964,494
+
+VALIDATION RESULTS
+------------------
+✓ Country facet usage_pct sums to exactly 100.00%
+✓ All country facet records now use "recalculated_percentage" method
+✓ Other facets (onet_task, collaboration) remain unchanged with weighted average approach
+✓ All regions processed successfully
+✓ No mathematical inconsistencies in country facet data
+
+IMPACT ON OTHER FACETS
+----------------------
+- onet_task facet: NO CHANGE (still uses weighted averages as intended)
+- collaboration facet: NO CHANGE (still uses weighted averages as intended)
+- Existing validation issues in other facets: PRESERVED (not part of this fix scope)
+
+CONCLUSION
+----------
+The country facet calculation fix has been successfully implemented and validated.
+Regional usage_pct values now correctly sum to 100% while preserving all other
+functionality and calculation methods for other facets.

@@ -1,0 +1,102 @@
+=== REGIONAL REQUEST AGGREGATION VALIDATION REPORT ===
+Generated on: 2025-09-19 11:54:47
+
+1. SOURCE DATA SUMMARY
+--------------------------------------------------
+Total request facet records: 36,458
+Unique countries: 133
+Unique regions: 6
+Request facet levels: ['0', '1', '2']
+Request variables: ['request_count', 'request_pct']
+
+2. COVERAGE BY REGION AND LEVEL
+--------------------------------------------------
+  APAC - Level 0: 8,220 records
+  APAC - Level 1: 2,906 records
+  APAC - Level 2: 940 records
+  Europe - Level 0: 6,098 records
+  Europe - Level 1: 3,670 records
+  Europe - Level 2: 1,680 records
+  Latin America - Level 0: 2,394 records
+  Latin America - Level 1: 1,474 records
+  Latin America - Level 2: 732 records
+  Middle East & Africa - Level 0: 2,314 records
+  Middle East & Africa - Level 1: 2,098 records
+  Middle East & Africa - Level 2: 1,182 records
+  North America - Level 0: 2,204 records
+  North America - Level 1: 432 records
+  North America - Level 2: 104 records
+  Unknown - Level 2: 10 records
+
+3. REQUEST CLUSTER DIVERSITY BY LEVEL
+--------------------------------------------------
+  Level 0: 587 unique request clusters
+  Level 1: 108 unique request clusters
+  Level 2: 26 unique request clusters
+
+4. REGIONAL AGGREGATION SUMMARY
+--------------------------------------------------
+Total regional records generated: 6,774
+  APAC - Level 0: 1,164 aggregations
+  APAC - Level 1: 216 aggregations
+  APAC - Level 2: 52 aggregations
+  Europe - Level 0: 1,150 aggregations
+  Europe - Level 1: 216 aggregations
+  Europe - Level 2: 52 aggregations
+  Latin America - Level 0: 1,042 aggregations
+  Latin America - Level 1: 214 aggregations
+  Latin America - Level 2: 52 aggregations
+  Middle East & Africa - Level 0: 910 aggregations
+  Middle East & Africa - Level 1: 206 aggregations
+  Middle East & Africa - Level 2: 52 aggregations
+  North America - Level 0: 1,170 aggregations
+  North America - Level 1: 216 aggregations
+  North America - Level 2: 52 aggregations
+  Unknown - Level 2: 10 aggregations
+
+5. AGGREGATION METHOD DISTRIBUTION
+--------------------------------------------------
+  sum: 3,387 records (50.0%)
+  weighted_average: 3,387 records (50.0%)
+
+6. REGIONAL WEIGHT DISTRIBUTION
+--------------------------------------------------
+  North America: 0.2370 (23.70%)
+  APAC: 0.2023 (20.23%)
+  Europe: 0.1824 (18.24%)
+  Latin America: 0.0514 (5.14%)
+  Middle East & Africa: 0.0269 (2.69%)
+  Unknown: 0.0002 (0.02%)
+
+7. COUNTRY USAGE WEIGHTS SUMMARY
+--------------------------------------------------
+Total usage across all countries: 964,494
+Top 10 countries by usage:
+  US: 208,200 (21.59%)
+  not_classified: 150,999 (15.66%)
+  IN: 68,964 (7.15%)
+  BR: 35,482 (3.68%)
+  JP: 35,298 (3.66%)
+  KR: 35,285 (3.66%)
+  GB: 30,474 (3.16%)
+  DE: 25,143 (2.61%)
+  FR: 21,314 (2.21%)
+  CA: 20,426 (2.12%)
+
+8. DATA QUALITY CHECKS
+--------------------------------------------------
+  Value range: 0.01 to 58241.00
+  Mean value: 355.04
+  ✓ No negative values in count variables
+  ✓ All percentage values in valid range (0-100)
+
+9. STRATEGIC INSIGHTS
+--------------------------------------------------
+  Regional request sophistication ranking (Level 0/Level 2 ratio):
+    North America: 1.00
+    APAC: 0.99
+    Latin America: 0.95
+    Europe: 0.93
+    Middle East & Africa: 0.86
+
+=== END OF VALIDATION REPORT ===
