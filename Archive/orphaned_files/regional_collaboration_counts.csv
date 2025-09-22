@@ -1,0 +1,40 @@
+region,facet,level,variable,cluster_name,value
+APAC,collaboration,0,collaboration_count,directive,3489258288.238784
+APAC,collaboration,0,collaboration_count,feedback loop,940458923.2906816
+APAC,collaboration,0,collaboration_count,learning,1550449058.4980078
+APAC,collaboration,0,collaboration_count,none,198649277.9373413
+APAC,collaboration,0,collaboration_count,not_classified,288.36065379557635
+APAC,collaboration,0,collaboration_count,task iteration,2006488591.9885163
+APAC,collaboration,0,collaboration_count,validation,350575629.8594158
+Europe,collaboration,0,collaboration_count,directive,918662789.6117383
+Europe,collaboration,0,collaboration_count,feedback loop,298681875.9205712
+Europe,collaboration,0,collaboration_count,learning,634406227.303007
+Europe,collaboration,0,collaboration_count,none,51395405.72708611
+Europe,collaboration,0,collaboration_count,not_classified,2309.3135701233955
+Europe,collaboration,0,collaboration_count,task iteration,607907143.7017528
+Europe,collaboration,0,collaboration_count,validation,139526732.4584245
+Latin America,collaboration,0,collaboration_count,directive,781961529.6845131
+Latin America,collaboration,0,collaboration_count,feedback loop,133675127.41867821
+Latin America,collaboration,0,collaboration_count,learning,199530233.69226345
+Latin America,collaboration,0,collaboration_count,none,25070658.469392605
+Latin America,collaboration,0,collaboration_count,not_classified,3610.468717576909
+Latin America,collaboration,0,collaboration_count,task iteration,307963749.26691
+Latin America,collaboration,0,collaboration_count,validation,47652212.08225308
+Middle East & Africa,collaboration,0,collaboration_count,directive,160442029.30781066
+Middle East & Africa,collaboration,0,collaboration_count,feedback loop,51441126.39902282
+Middle East & Africa,collaboration,0,collaboration_count,learning,78001909.77353525
+Middle East & Africa,collaboration,0,collaboration_count,none,9737804.659675265
+Middle East & Africa,collaboration,0,collaboration_count,not_classified,12513.529834932717
+Middle East & Africa,collaboration,0,collaboration_count,task iteration,93251346.50119446
+Middle East & Africa,collaboration,0,collaboration_count,validation,15596510.13855934
+North America,collaboration,0,collaboration_count,directive,16161135366.844444
+North America,collaboration,0,collaboration_count,feedback loop,3626963953.755688
+North America,collaboration,0,collaboration_count,learning,9318423642.774582
+North America,collaboration,0,collaboration_count,none,3409884856.9340267
+North America,collaboration,0,collaboration_count,task iteration,9272509569.863522
+North America,collaboration,0,collaboration_count,validation,1964635647.9284074
+Unknown,collaboration,0,collaboration_count,directive,17.80314596039106
+Unknown,collaboration,0,collaboration_count,feedback loop,3.391075421026869
+Unknown,collaboration,0,collaboration_count,learning,4.662728703911944
+Unknown,collaboration,0,collaboration_count,not_classified,2.5433065657701515
+Unknown,collaboration,0,collaboration_count,task iteration,9.53739962163807
