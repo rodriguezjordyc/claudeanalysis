@@ -1,0 +1,61 @@
+region,facet,variable,domain,value,percentage
+APAC,domain,domain_count,not_classified,58915,56.35
+APAC,domain,domain_count,Software_Development,21436,20.5
+APAC,domain,domain_count,Education_Training,10666,10.2
+APAC,domain,domain_count,none,9139,0.0
+APAC,domain,domain_count,Research_Analysis,4516,4.32
+APAC,domain,domain_count,Administrative_Support,2739,2.62
+APAC,domain,domain_count,Customer_Service,2479,2.37
+APAC,domain,domain_count,Business_Management,1109,1.06
+APAC,domain,domain_count,Creative_Communications,1021,0.98
+APAC,domain,domain_count,Healthcare_Medical,738,0.71
+APAC,domain,domain_count,Financial_Services,626,0.6
+APAC,domain,domain_count,Professional_Services,303,0.29
+Europe,domain,domain_count,not_classified,67065,73.11
+Europe,domain,domain_count,Software_Development,11953,13.03
+Europe,domain,domain_count,none,8584,0.0
+Europe,domain,domain_count,Education_Training,4249,4.63
+Europe,domain,domain_count,Research_Analysis,3011,3.28
+Europe,domain,domain_count,Customer_Service,1586,1.73
+Europe,domain,domain_count,Administrative_Support,1435,1.56
+Europe,domain,domain_count,Business_Management,723,0.79
+Europe,domain,domain_count,Healthcare_Medical,637,0.69
+Europe,domain,domain_count,Financial_Services,451,0.49
+Europe,domain,domain_count,Creative_Communications,427,0.47
+Europe,domain,domain_count,Professional_Services,191,0.21
+Latin America,domain,domain_count,not_classified,26790,71.34
+Latin America,domain,domain_count,none,5918,0.0
+Latin America,domain,domain_count,Software_Development,4344,11.57
+Latin America,domain,domain_count,Education_Training,3094,8.24
+Latin America,domain,domain_count,Administrative_Support,1479,3.94
+Latin America,domain,domain_count,Research_Analysis,795,2.12
+Latin America,domain,domain_count,Customer_Service,427,1.14
+Latin America,domain,domain_count,Business_Management,294,0.78
+Latin America,domain,domain_count,Creative_Communications,189,0.5
+Latin America,domain,domain_count,Healthcare_Medical,98,0.26
+Latin America,domain,domain_count,Financial_Services,28,0.07
+Latin America,domain,domain_count,Professional_Services,15,0.04
+Middle East & Africa,domain,domain_count,not_classified,33148,80.3
+Middle East & Africa,domain,domain_count,Software_Development,4707,11.4
+Middle East & Africa,domain,domain_count,none,2546,0.0
+Middle East & Africa,domain,domain_count,Education_Training,2170,5.26
+Middle East & Africa,domain,domain_count,Research_Analysis,628,1.52
+Middle East & Africa,domain,domain_count,Customer_Service,244,0.59
+Middle East & Africa,domain,domain_count,Administrative_Support,163,0.39
+Middle East & Africa,domain,domain_count,Business_Management,125,0.3
+Middle East & Africa,domain,domain_count,Healthcare_Medical,96,0.23
+Middle East & Africa,domain,domain_count,Creative_Communications,0,0.0
+Middle East & Africa,domain,domain_count,Financial_Services,0,0.0
+Middle East & Africa,domain,domain_count,Professional_Services,0,0.0
+North America,domain,domain_count,none,21301,0.0
+North America,domain,domain_count,not_classified,21009,29.25
+North America,domain,domain_count,Software_Development,15268,21.26
+North America,domain,domain_count,Research_Analysis,7644,10.64
+North America,domain,domain_count,Education_Training,6645,9.25
+North America,domain,domain_count,Administrative_Support,5683,7.91
+North America,domain,domain_count,Customer_Service,5135,7.15
+North America,domain,domain_count,Creative_Communications,2542,3.54
+North America,domain,domain_count,Business_Management,2484,3.46
+North America,domain,domain_count,Healthcare_Medical,2457,3.42
+North America,domain,domain_count,Financial_Services,2125,2.96
+North America,domain,domain_count,Professional_Services,839,1.17
