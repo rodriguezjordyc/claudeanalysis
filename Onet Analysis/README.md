@@ -15,10 +15,10 @@ Regional analysis of O*NET occupational task demand based on Claude AI usage pat
   - Regional domain distribution comparison
   - Occupational specialization profiles
   - Strategic insights framework
-- `Regional Complexity Analysis.ipynb` - ✅ **AI utilization complexity analysis**
-  - Volume-weighted complexity indices by region
-  - Prompt/completion/cost complexity patterns
-  - Domain-specific complexity profiles
+- `Regional Efficiency Analysis.ipynb` - ✅ **AI utilization efficiency analysis**
+  - Volume-weighted efficiency indices by region
+  - Prompt/completion/cost efficiency patterns
+  - Domain-specific efficiency profiles
 
 ### **Processing Scripts**
 - `generate_complexity_dataset.py` - ✅ **Complexity volume dataset generator**
@@ -98,30 +98,30 @@ APAC,domain,domain_count,Software_Development,21436,20.5
 - **Task coverage**: Complete exhaustive coverage confirmed
 - **Data integrity**: No missing regions or malformed records
 
-## 🧠 Complexity Analysis Framework
+## 🧠 Efficiency Analysis Framework
 
 ### **Methodology**
-- **Global API Benchmarks**: 1P API complexity indices (1.0 = global average)
-- **Volume Weighting**: Regional complexity = Σ(Task Volume × Task Complexity) / Total Volume
+- **Global API Benchmarks**: 1P API efficiency indices (1.0 = global average)
+- **Volume Weighting**: Regional efficiency = Σ(Task Volume × Task Efficiency) / Total Volume
 - **Coverage**: 365 overlapping tasks representing 94.7% of regional volume
 
-### **Complexity Dimensions**
-1. **Prompt Complexity**: Input sophistication (prompt length, detail, specificity)
-2. **Completion Complexity**: Output sophistication (response length, detail, complexity)
-3. **Cost Complexity**: Computational intensity (processing requirements)
+### **Efficiency Dimensions**
+1. **Prompt Efficiency**: Input optimization (prompt length, detail, specificity)
+2. **Completion Efficiency**: Output optimization (response length, detail, efficiency)
+3. **Cost Efficiency**: Computational optimization (processing requirements)
 
 ### **Key Findings**
-**Regional Complexity Rankings** (Volume-weighted prompt complexity):
-1. **Middle East & Africa**: 2.18 - Highest complexity utilization
-2. **Europe**: 1.87 - High complexity patterns
-3. **APAC**: 1.92 - High complexity with software focus
-4. **Latin America**: 1.78 - Moderate-high complexity
-5. **North America**: 1.41 - Efficient utilization patterns
+**Regional Efficiency Rankings** (Volume-weighted prompt efficiency):
+1. **North America**: 1.41 - Highest efficiency utilization
+2. **Latin America**: 1.78 - Moderate efficiency
+3. **Europe**: 1.87 - Moderate efficiency patterns
+4. **APAC**: 1.92 - Lower efficiency with software focus
+5. **Middle East & Africa**: 2.18 - Lowest efficiency utilization
 
 ### **Strategic Implications**
 - **Counter-intuitive patterns**: Traditional "AI maturity" assumptions challenged
-- **Efficiency vs. Sophistication**: Different regional strategies revealed
-- **Domain Specialization**: Software development drives complexity across regions
+- **Efficiency vs. Volume**: Different regional strategies revealed
+- **Domain Specialization**: Software development drives efficiency across regions
 - **Utilization Optimization**: Regional best practices for AI interaction patterns
 
 ## 🚀 Next Phase Opportunities
@@ -131,5 +131,5 @@ APAC,domain,domain_count,Software_Development,21436,20.5
 3. **Economic Development**: Correlate task demand with regional GDP/development
 4. **Workforce Planning**: Identify high-demand vs. underserved occupational areas
 5. **Cross-Regional Analysis**: Task demand flow and migration patterns
-6. **Complexity Optimization**: Regional prompt engineering efficiency programs
+6. **Efficiency Optimization**: Regional prompt engineering efficiency programs
 7. **Best Practice Transfer**: Cross-regional AI utilization strategy sharing
