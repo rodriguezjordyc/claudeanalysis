@@ -144,7 +144,7 @@
         </div>
 
         <div class="chart-container">
-            <h2 class="chart-title">Human-AI Collaboration Patterns by Region</h2>            
+            <h2 class="chart-title">Human-AI Collaboration Patterns by Region</h2>
         <div class="chart-wrapper">
                 <canvas id="collaborationChart"></canvas>
             </div>
@@ -158,6 +158,26 @@
                     <li>Task Iteration: Strong secondary pattern in most regions</li>
                     <li>Learning: Significant regional variation in educational collaboration</li>
                     <li>Regional preferences suggest different user sophistication and needs</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <h2 class="chart-title">Automation vs Augmentation Collaboration Patterns</h2>
+            <p class="chart-subtitle">Aggregated collaboration patterns showing automation-leaning vs augmentation-leaning tendencies by region</p>
+            <div class="chart-wrapper">
+                <canvas id="aggregatedChart"></canvas>
+            </div>
+
+            <button class="download-btn" onclick="downloadAggregatedChart()">Download Chart as PNG</button>
+
+            <div class="insights">
+                <h3>Key Automation vs Augmentation Insights</h3>
+                <ul>
+                    <li>Automation-leaning: Directive + Feedback Loop patterns (task completion focus)</li>
+                    <li>Augmentation-leaning: Task Iteration + Learning + Validation patterns (collaborative enhancement focus)</li>
+                    <li>Regional balance varies significantly, indicating different AI adoption philosophies</li>
+                    <li>Europe shows strongest augmentation preference, Latin America strongest automation preference</li>
                 </ul>
             </div>
         </div>
@@ -302,6 +322,141 @@
             }
         });
 
+        // Aggregated collaboration data (Automation vs Augmentation)
+        const aggregatedCollaborationData = {
+            labels: ['Automation-leaning', 'Augmentation-leaning'],
+            datasets: [
+                {
+                    label: 'North America',
+                    data: [45.2, 47.4],
+                    backgroundColor: '#2E86AB',
+                    borderColor: '#2E86AB',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Latin America',
+                    data: [57.2, 41.1],
+                    backgroundColor: '#A23B72',
+                    borderColor: '#A23B72',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Europe',
+                    data: [46.5, 51.5],
+                    backgroundColor: '#F18F01',
+                    borderColor: '#F18F01',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Middle East & Africa',
+                    data: [53.4, 44.0],
+                    backgroundColor: '#C73E1D',
+                    borderColor: '#C73E1D',
+                    borderWidth: 1
+                },
+                {
+                    label: 'APAC',
+                    data: [50.5, 47.3],
+                    backgroundColor: '#5C946E',
+                    borderColor: '#5C946E',
+                    borderWidth: 1
+                }
+            ]
+        };
+
+        const aggregatedCtx = document.getElementById('aggregatedChart').getContext('2d');
+
+        const aggregatedChart = new Chart(aggregatedCtx, {
+            type: 'bar',
+            data: aggregatedCollaborationData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: false
+                    },
+                    legend: {
+                        display: true,
+                        position: 'top',
+                        labels: {
+                            font: {
+                                family: 'Gidole',
+                                size: 12
+                            },
+                            usePointStyle: true,
+                            padding: 20
+                        }
+                    },
+                    tooltip: {
+                        enabled: false
+                    },
+                    datalabels: {
+                        display: true,
+                        color: '#2c3e50',
+                        font: {
+                            family: 'Gidole',
+                            size: 14,
+                            weight: 'bold'
+                        },
+                        formatter: function(value, context) {
+                            return value.toFixed(1) + '%';
+                        },
+                        anchor: 'end',
+                        align: 'top'
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Collaboration Approach',
+                            font: {
+                                family: 'Gidole',
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        ticks: {
+                            font: {
+                                family: 'Gidole',
+                                size: 12
+                            }
+                        },
+                        grid: {
+                            display: false
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: '% of Total Interactions',
+                            font: {
+                                family: 'Gidole',
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        ticks: {
+                            font: {
+                                family: 'Gidole',
+                                size: 11
+                            }
+                        },
+                    grid: {
+                        display: false
+                    },
+                        beginAtZero: true
+                    }
+                },
+                layout: {
+                    padding: {
+                        top: 20
+                    }
+                }
+            }
+        });
+
 
         function downloadChart() {
             const canvas = document.getElementById('collaborationChart');
@@ -327,6 +482,34 @@
             
             const link = document.createElement('a');
             link.download = 'collaborationanalysis.png';
+            link.href = downloadCanvas.toDataURL('image/png');
+            link.click();
+        }
+
+        function downloadAggregatedChart() {
+            const canvas = document.getElementById('aggregatedChart');
+
+            // Create a new canvas with white background and title
+            const downloadCanvas = document.createElement('canvas');
+            const downloadCtx = downloadCanvas.getContext('2d');
+            downloadCanvas.width = canvas.width + 100;
+            downloadCanvas.height = canvas.height + 150;
+
+            // Fill white background
+            downloadCtx.fillStyle = 'white';
+            downloadCtx.fillRect(0, 0, downloadCanvas.width, downloadCanvas.height);
+
+            // Add title
+            downloadCtx.fillStyle = '#2c3e50';
+            downloadCtx.font = 'bold 24px Gidole';
+            downloadCtx.textAlign = 'center';
+            downloadCtx.fillText('Automation vs Augmentation Collaboration Patterns', downloadCanvas.width / 2, 40);
+            downloadCtx.font = '18px Gidole';
+            // Draw the chart
+            downloadCtx.drawImage(canvas, 50, 100);
+
+            const link = document.createElement('a');
+            link.download = 'automation-augmentation-analysis.png';
             link.href = downloadCanvas.toDataURL('image/png');
             link.click();
         }
