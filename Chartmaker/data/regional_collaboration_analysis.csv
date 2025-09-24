@@ -1,0 +1,74 @@
+region,facet,level,variable,cluster_name,value
+APAC,collaboration,0,collaboration_count,directive,101669.0
+APAC,collaboration,0,collaboration_pct,directive,40.18902904216589
+APAC,collaboration,0,collaboration_count,feedback loop,26022.0
+APAC,collaboration,0,collaboration_pct,feedback loop,10.286310613217802
+APAC,collaboration,0,collaboration_count,learning,49060.0
+APAC,collaboration,0,collaboration_pct,learning,19.393067353949174
+APAC,collaboration,0,collaboration_count,none,5688.0
+APAC,collaboration,0,collaboration_pct,none,2.2484257462140826
+APAC,collaboration,0,collaboration_count,not_classified,234.0
+APAC,collaboration,0,collaboration_count,task iteration,59610.0
+APAC,collaboration,0,collaboration_pct,task iteration,23.56340695003894
+APAC,collaboration,0,collaboration_count,validation,10928.0
+APAC,collaboration,0,collaboration_pct,validation,4.319760294414117
+Europe,collaboration,0,collaboration_count,directive,61483.0
+Europe,collaboration,0,collaboration_pct,directive,34.73517697240191
+Europe,collaboration,0,collaboration_count,feedback loop,20837.0
+Europe,collaboration,0,collaboration_pct,feedback loop,11.771983842264342
+Europe,collaboration,0,collaboration_count,learning,42485.0
+Europe,collaboration,0,collaboration_pct,learning,24.002146832010396
+Europe,collaboration,0,collaboration_count,none,3583.0
+Europe,collaboration,0,collaboration_pct,none,2.024236603485777
+Europe,collaboration,0,collaboration_count,not_classified,232.0
+Europe,collaboration,0,collaboration_count,task iteration,39282.0
+Europe,collaboration,0,collaboration_pct,task iteration,22.192593429564138
+Europe,collaboration,0,collaboration_count,validation,9335.0
+Europe,collaboration,0,collaboration_pct,validation,5.273862320273438
+Latin America,collaboration,0,collaboration_count,directive,37840.0
+Latin America,collaboration,0,collaboration_pct,directive,47.52694114396242
+Latin America,collaboration,0,collaboration_count,feedback loop,7697.0
+Latin America,collaboration,0,collaboration_pct,feedback loop,9.667411891783265
+Latin America,collaboration,0,collaboration_count,learning,12605.0
+Latin America,collaboration,0,collaboration_pct,learning,15.831847069758096
+Latin America,collaboration,0,collaboration_count,none,1376.0
+Latin America,collaboration,0,collaboration_pct,none,1.7282524052349972
+Latin America,collaboration,0,collaboration_count,not_classified,260.0
+Latin America,collaboration,0,collaboration_count,task iteration,17336.0
+Latin America,collaboration,0,collaboration_pct,task iteration,21.773970710140922
+Latin America,collaboration,0,collaboration_count,validation,2764.0
+Latin America,collaboration,0,collaboration_pct,validation,3.471576779120299
+Middle East & Africa,collaboration,0,collaboration_count,directive,30366.0
+Middle East & Africa,collaboration,0,collaboration_pct,directive,41.32778049975502
+Middle East & Africa,collaboration,0,collaboration_count,feedback loop,8924.0
+Middle East & Africa,collaboration,0,collaboration_pct,feedback loop,12.145462463933802
+Middle East & Africa,collaboration,0,collaboration_count,learning,13155.0
+Middle East & Africa,collaboration,0,collaboration_pct,learning,17.90380532418749
+Middle East & Africa,collaboration,0,collaboration_count,none,1873.0
+Middle East & Africa,collaboration,0,collaboration_pct,none,2.549131689259078
+Middle East & Africa,collaboration,0,collaboration_count,not_classified,575.0
+Middle East & Africa,collaboration,0,collaboration_count,task iteration,16510.0
+Middle East & Africa,collaboration,0,collaboration_pct,task iteration,22.469922151450813
+Middle East & Africa,collaboration,0,collaboration_count,validation,2648.0
+Middle East & Africa,collaboration,0,collaboration_pct,validation,3.603897871413795
+North America,collaboration,0,collaboration_count,directive,83990.0
+North America,collaboration,0,collaboration_pct,directive,36.73685407608933
+North America,collaboration,0,collaboration_count,feedback loop,19465.0
+North America,collaboration,0,collaboration_pct,feedback loop,8.513904805227753
+North America,collaboration,0,collaboration_count,learning,49183.0
+North America,collaboration,0,collaboration_pct,learning,21.512426408195044
+North America,collaboration,0,collaboration_count,none,16805.0
+North America,collaboration,0,collaboration_pct,none,7.350432584220518
+North America,collaboration,0,collaboration_count,task iteration,48764.0
+North America,collaboration,0,collaboration_pct,task iteration,21.329157663607816
+North America,collaboration,0,collaboration_count,validation,10419.0
+North America,collaboration,0,collaboration_pct,validation,4.55722446265954
+Unknown,collaboration,0,collaboration_count,directive,84.0
+Unknown,collaboration,0,collaboration_pct,directive,50.29940119760479
+Unknown,collaboration,0,collaboration_count,feedback loop,16.0
+Unknown,collaboration,0,collaboration_pct,feedback loop,9.580838323353294
+Unknown,collaboration,0,collaboration_count,learning,22.0
+Unknown,collaboration,0,collaboration_pct,learning,13.17365269461078
+Unknown,collaboration,0,collaboration_count,not_classified,12.0
+Unknown,collaboration,0,collaboration_count,task iteration,45.0
+Unknown,collaboration,0,collaboration_pct,task iteration,26.94610778443114

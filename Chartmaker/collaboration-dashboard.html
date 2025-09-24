@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regional Collaboration Analysis</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+    <style>
+        @font-face {
+            font-family: 'Gidole';
+            src: url('Fonts/Gidole-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Gidole', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #fafafa;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-weight: normal;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            font-weight: normal;
+        }
+
+        .chart-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .chart-title {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: normal;
+        }
+
+        .chart-subtitle {
+            font-size: 1rem;
+            color: #7f8c8d;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: normal;
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 600px;
+            margin: 2rem 0;
+        }
+
+        .download-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-family: 'Gidole', sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin: 1rem auto;
+            display: block;
+        }
+
+        .download-btn:hover {
+            background: #2980b9;
+        }
+
+        .insights {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .insights h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: normal;
+        }
+
+        .insights ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .insights li {
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .insights li:before {
+            content: "•";
+            color: #3498db;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Regional Collaboration Analysis</h1>
+            <p class="subtitle">Human-AI Collaboration Patterns by Region - Comparative Analysis</p>
+        </div>
+
+        <div class="chart-container">
+            <h2 class="chart-title">Human-AI Collaboration Patterns by Region</h2>
+            <p class="chart-subtitle">Comparative Analysis</p>
+            
+            <div class="chart-wrapper">
+                <canvas id="collaborationChart"></canvas>
+            </div>
+
+            <button class="download-btn" onclick="downloadChart()">Download Chart as PNG</button>
+
+            <div class="insights">
+                <h3>Key Regional Observations</h3>
+                <ul>
+                    <li>Directive pattern: Most dominant collaboration type across all regions</li>
+                    <li>Task Iteration: Strong secondary pattern in most regions</li>
+                    <li>Learning: Significant regional variation in educational collaboration</li>
+                    <li>Regional preferences suggest different user sophistication and needs</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Regional collaboration data from the notebook
+        const collaborationData = {
+            labels: ['Directive', 'Feedback Loop', 'Task Iteration', 'Learning', 'Validation'],
+            datasets: [
+                {
+                    label: 'North America',
+                    data: [36.7, 8.5, 21.3, 21.5, 4.6],
+                    backgroundColor: '#2E86AB',
+                    borderColor: '#2E86AB',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Latin America',
+                    data: [47.5, 9.7, 21.8, 15.8, 3.5],
+                    backgroundColor: '#A23B72',
+                    borderColor: '#A23B72',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Europe',
+                    data: [34.7, 11.8, 22.2, 24.0, 5.3],
+                    backgroundColor: '#F18F01',
+                    borderColor: '#F18F01',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Middle East & Africa',
+                    data: [41.3, 12.1, 22.5, 17.9, 3.6],
+                    backgroundColor: '#C73E1D',
+                    borderColor: '#C73E1D',
+                    borderWidth: 1
+                },
+                {
+                    label: 'APAC',
+                    data: [40.2, 10.3, 23.6, 19.4, 4.3],
+                    backgroundColor: '#5C946E',
+                    borderColor: '#5C946E',
+                    borderWidth: 1
+                }
+            ]
+        };
+
+        const ctx = document.getElementById('collaborationChart').getContext('2d');
+        
+        // Register the datalabels plugin
+        Chart.register(ChartDataLabels);
+        
+        const chart = new Chart(ctx, {
+            type: 'bar',
+            data: collaborationData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: false
+                    },
+                    legend: {
+                        display: true,
+                        position: 'top',
+                        labels: {
+                            font: {
+                                family: 'Gidole',
+                                size: 12
+                            },
+                            usePointStyle: true,
+                            padding: 20
+                        }
+                    },
+                    tooltip: {
+                        enabled: false
+                    },
+                    datalabels: {
+                        display: true,
+                        color: '#2c3e50',
+                        font: {
+                            family: 'Gidole',
+                            size: 14,
+                            weight: 'bold'
+                        },
+                        formatter: function(value, context) {
+                            return value.toFixed(1) + '%';
+                        },
+                        anchor: 'end',
+                        align: 'top'
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Collaboration Pattern Type',
+                            font: {
+                                family: 'Gidole',
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        ticks: {
+                            font: {
+                                family: 'Gidole',
+                                size: 12
+                            }
+                        },
+                        grid: {
+                            display: false
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Percentage of Total Interactions (%)',
+                            font: {
+                                family: 'Gidole',
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        ticks: {
+                            font: {
+                                family: 'Gidole',
+                                size: 11
+                            }
+                        },
+                    grid: {
+                        display: false
+                    },
+                        beginAtZero: true
+                    }
+                },
+                layout: {
+                    padding: {
+                        top: 20
+                    }
+                }
+            }
+        });
+
+
+        function downloadChart() {
+            const canvas = document.getElementById('collaborationChart');
+            
+            // Create a new canvas with white background and title
+            const downloadCanvas = document.createElement('canvas');
+            const downloadCtx = downloadCanvas.getContext('2d');
+            downloadCanvas.width = canvas.width + 100;
+            downloadCanvas.height = canvas.height + 150;
+            
+            // Fill white background
+            downloadCtx.fillStyle = 'white';
+            downloadCtx.fillRect(0, 0, downloadCanvas.width, downloadCanvas.height);
+            
+            // Add title
+            downloadCtx.fillStyle = '#2c3e50';
+            downloadCtx.font = 'bold 24px Gidole';
+            downloadCtx.textAlign = 'center';
+            downloadCtx.fillText('Human-AI Collaboration Patterns by Region', downloadCanvas.width / 2, 40);
+            downloadCtx.font = '18px Gidole';
+            downloadCtx.fillText('Comparative Analysis', downloadCanvas.width / 2, 70);
+            
+            // Draw the chart
+            downloadCtx.drawImage(canvas, 50, 100);
+            
+            const link = document.createElement('a');
+            link.download = 'Regional_Collaboration_Patterns_Analysis.png';
+            link.href = downloadCanvas.toDataURL('image/png');
+            link.click();
+        }
+    </script>
+</body>
+</html>

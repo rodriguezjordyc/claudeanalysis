@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Software Maturity Score</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+    <style>
+        @font-face {
+            font-family: 'Gidole';
+            src: url('Fonts/Gidole-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Gidole', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #fafafa;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-weight: normal;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            font-weight: normal;
+        }
+
+        .chart-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .chart-title {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: normal;
+        }
+
+        .chart-subtitle {
+            font-size: 1rem;
+            color: #7f8c8d;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: normal;
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 500px;
+            margin: 2rem 0;
+        }
+
+        .download-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-family: 'Gidole', sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin: 1rem auto;
+            display: block;
+        }
+
+        .download-btn:hover {
+            background: #2980b9;
+        }
+
+        .insights {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .insights h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: normal;
+        }
+
+        .insights ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .insights li {
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .insights li:before {
+            content: "•";
+            color: #3498db;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .ranking-badge {
+            display: inline-block;
+            background: #2c3e50;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>AI Software Maturity Score</h1>
+            <p class="subtitle">Regional Rankings - Composite Index (0-100 Scale)</p>
+        </div>
+
+        <div class="chart-container">
+            <h2 class="chart-title">AI Software Development Maturity Score by Region</h2>
+            <p class="chart-subtitle">Composite Index (0-100 Scale)</p>
+            
+            <div class="chart-wrapper">
+                <canvas id="maturityChart"></canvas>
+            </div>
+
+            <button class="download-btn" onclick="downloadChart()">Download Chart as PNG</button>
+
+            <div class="insights">
+                <h3>Key Findings</h3>
+                <ul>
+                    <li>North America leads with comprehensive excellence across all dimensions</li>
+                    <li>Europe rises to #2 with balanced collaboration-complexity weighting</li>
+                    <li>APAC shows strong complexity engagement but moderate collaboration</li>
+                    <li>Methodology: 40% Collaboration + 20% Efficiency + 40% Complexity</li>
+                    <li>AI literacy (collaboration) equally important as task complexity</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Maturity score data from the notebook
+        const maturityData = {
+            labels: ['Middle East & Africa', 'Latin America', 'APAC', 'Europe', 'North America'],
+            datasets: [{
+                label: 'Maturity Score',
+                data: [11.2, 26.8, 62.7, 66.3, 84.3],
+                backgroundColor: ['#C73E1D', '#A23B72', '#5C946E', '#F18F01', '#2E86AB'],
+                borderColor: ['#C73E1D', '#A23B72', '#5C946E', '#F18F01', '#2E86AB'],
+                borderWidth: 1
+            }]
+        };
+
+        const ctx = document.getElementById('maturityChart').getContext('2d');
+        
+        // Register the datalabels plugin
+        Chart.register(ChartDataLabels);
+        
+        const chart = new Chart(ctx, {
+            type: 'bar',
+            data: maturityData,
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: false
+                    },
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.parsed.x.toFixed(1) + ' points';
+                            }
+                        },
+                        enabled: false
+                    },
+                    datalabels: {
+                        display: true,
+                        color: '#2c3e50',
+                        font: {
+                            family: 'Gidole',
+                            size: 14,
+                            weight: 'bold'
+                        },
+                        formatter: function(value, context) {
+                            return value.toFixed(1);
+                        },
+                        anchor: 'end',
+                        align: 'end'
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Maturity Score',
+                            font: {
+                                family: 'Gidole',
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        ticks: {
+                            font: {
+                                family: 'Gidole',
+                                size: 11
+                            }
+                        },
+                    grid: {
+                        display: false
+                    },
+                        beginAtZero: true,
+                        max: 100
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Region',
+                            font: {
+                                family: 'Gidole',
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        ticks: {
+                            font: {
+                                family: 'Gidole',
+                                size: 12
+                            }
+                        },
+                        grid: {
+                            display: false
+                        }
+                    }
+                },
+                layout: {
+                    padding: {
+                        left: 20,
+                        right: 20
+                    }
+                }
+            }
+        });
+
+        function downloadChart() {
+            const canvas = document.getElementById('maturityChart');
+            
+            // Create a new canvas with white background and title
+            const downloadCanvas = document.createElement('canvas');
+            const downloadCtx = downloadCanvas.getContext('2d');
+            downloadCanvas.width = canvas.width + 100;
+            downloadCanvas.height = canvas.height + 150;
+            
+            // Fill white background
+            downloadCtx.fillStyle = 'white';
+            downloadCtx.fillRect(0, 0, downloadCanvas.width, downloadCanvas.height);
+            
+            // Add title
+            downloadCtx.fillStyle = '#2c3e50';
+            downloadCtx.font = 'bold 24px Gidole';
+            downloadCtx.textAlign = 'center';
+            downloadCtx.fillText('AI Software Development Maturity Score by Region', downloadCanvas.width / 2, 40);
+            downloadCtx.font = '18px Gidole';
+            downloadCtx.fillText('Composite Index (0-100 Scale)', downloadCanvas.width / 2, 70);
+            
+            // Draw the chart
+            downloadCtx.drawImage(canvas, 50, 100);
+            
+            const link = document.createElement('a');
+            link.download = 'AI_Software_Maturity_Score_Rankings.png';
+            link.href = downloadCanvas.toDataURL('image/png');
+            link.click();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Request Analysis</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+    <style>
+        @font-face {
+            font-family: 'Gidole';
+            src: url('Fonts/Gidole-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Gidole', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #fafafa;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-weight: normal;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            font-weight: normal;
+        }
+
+        .chart-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .chart-title {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: normal;
+        }
+
+        .chart-subtitle {
+            font-size: 1rem;
+            color: #7f8c8d;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: normal;
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 600px;
+            margin: 2rem 0;
+        }
+
+        .download-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-family: 'Gidole', sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin: 1rem auto;
+            display: block;
+        }
+
+        .download-btn:hover {
+            background: #2980b9;
+        }
+
+        .insights {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .insights h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: normal;
+        }
+
+        .insights ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .insights li {
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .insights li:before {
+            content: "•";
+            color: #3498db;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Software Request Analysis</h1>
+            <p class="subtitle">Regional Software Development Request Patterns - SDLC Stage and Complexity Analysis</p>
+        </div>
+
+        <!-- SDLC Stage Distribution Chart -->
+        <div class="chart-container">
+            <h2 class="chart-title">Software Development Requests by SDLC Stage</h2>
+            <p class="chart-subtitle">Regional Comparison</p>
+            
+            <div class="chart-wrapper">
+                <canvas id="sdlcChart"></canvas>
+            </div>
+
+            <button class="download-btn" onclick="downloadSDLCChart()">Download SDLC Chart as PNG</button>
+
+            <div class="insights">
+                <h3>Key Regional Insights - SDLC Patterns</h3>
+                <ul>
+                    <li>Implementation & Coding: Highest across all regions (30-45% range)</li>
+                    <li>Testing & QA: Second highest priority globally (20-35% range)</li>
+                    <li>Requirements Planning: Lowest adoption (5-15% range)</li>
+                    <li>Regional variations suggest different development maturity levels</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Complexity Level Distribution Chart -->
+        <div class="chart-container">
+            <h2 class="chart-title">Software Development Requests by Complexity Level</h2>
+            <p class="chart-subtitle">Regional Comparison</p>
+            
+            <div class="chart-wrapper">
+                <canvas id="complexityChart"></canvas>
+            </div>
+
+            <button class="download-btn" onclick="downloadComplexityChart()">Download Complexity Chart as PNG</button>
+
+            <div class="insights">
+                <h3>Key Regional Insights - Complexity Patterns</h3>
+                <ul>
+                    <li>Low Complexity (Level 2): Dominates most regions (35-45% range)</li>
+                    <li>High Complexity (Level 0): Varies significantly by region (20-35% range)</li>
+                    <li>Medium Complexity (Level 1): Consistent middle ground (25-35% range)</li>
+                    <li>Regional patterns suggest different user sophistication levels</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // SDLC Stage data from the notebook
+        const sdlcData = {
+            labels: ['Requirements & Planning', 'Design & Architecture', 'Implementation & Coding', 'Testing & QA', 'Deployment & Maintenance'],
+            datasets: [
+                {
+                    label: 'North America',
+                    data: [1.6, 15.4, 39.9, 39.3, 3.8],
+                    backgroundColor: '#2E86AB',
+                    borderColor: '#2E86AB',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Latin America',
+                    data: [1.1, 15.4, 40.5, 40.0, 3.0],
+                    backgroundColor: '#A23B72',
+                    borderColor: '#A23B72',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Europe',
+                    data: [0.8, 14.6, 39.5, 40.9, 4.1],
+                    backgroundColor: '#F18F01',
+                    borderColor: '#F18F01',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Middle East & Africa',
+                    data: [0.6, 14.7, 34.9, 47.2, 2.5],
+                    backgroundColor: '#C73E1D',
+                    borderColor: '#C73E1D',
+                    borderWidth: 1
+                },
+                {
+                    label: 'APAC',
+                    data: [1.2, 16.4, 34.5, 44.8, 3.2],
+                    backgroundColor: '#5C946E',
+                    borderColor: '#5C946E',
+                    borderWidth: 1
+                }
+            ]
+        };
+
+        // Complexity Level data from the notebook
+        const complexityData = {
+            labels: ['Level 0 (High Complexity)', 'Level 1 (Medium Complexity)', 'Level 2 (Low Complexity)'],
+            datasets: [
+                {
+                    label: 'North America',
+                    data: [30.5, 30.3, 39.2],
+                    backgroundColor: '#2E86AB',
+                    borderColor: '#2E86AB',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Latin America',
+                    data: [24.1, 31.5, 44.4],
+                    backgroundColor: '#A23B72',
+                    borderColor: '#A23B72',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Europe',
+                    data: [21.6, 34.0, 44.4],
+                    backgroundColor: '#F18F01',
+                    borderColor: '#F18F01',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Middle East & Africa',
+                    data: [16.6, 34.8, 48.6],
+                    backgroundColor: '#C73E1D',
+                    borderColor: '#C73E1D',
+                    borderWidth: 1
+                },
+                {
+                    label: 'APAC',
+                    data: [27.0, 32.1, 40.9],
+                    backgroundColor: '#5C946E',
+                    borderColor: '#5C946E',
+                    borderWidth: 1
+                }
+            ]
+        };
+
+        const chartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                title: {
+                    display: false
+                },
+                legend: {
+                    display: true,
+                    position: 'top',
+                    labels: {
+                        font: {
+                            family: 'Gidole',
+                            size: 12
+                        },
+                        usePointStyle: true,
+                        padding: 20
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return context.dataset.label + ': ' + context.parsed.y.toFixed(1) + '%';
+                        }
+                    },
+                        enabled: false
+                    },
+                    datalabels: {
+                        display: true,
+                        color: '#2c3e50',
+                        font: {
+                            family: 'Gidole',
+                            size: 14,
+                            weight: 'bold'
+                        },
+                        formatter: function(value, context) {
+                            return value.toFixed(1) + '%';
+                        },
+                        anchor: 'end',
+                        align: 'top'
+                }
+            },
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Software Development Lifecycle Stage',
+                        font: {
+                            family: 'Gidole',
+                            size: 14,
+                            weight: 'bold'
+                        }
+                    },
+                    ticks: {
+                        font: {
+                            family: 'Gidole',
+                            size: 12
+                        }
+                    },
+                    grid: {
+                        display: false
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Percentage of Total Requests (%)',
+                        font: {
+                            family: 'Gidole',
+                            size: 14,
+                            weight: 'bold'
+                        }
+                    },
+                    ticks: {
+                        font: {
+                            family: 'Gidole',
+                            size: 11
+                        }
+                    },
+                    grid: {
+                        display: false
+                    },
+                    beginAtZero: true
+                }
+            },
+            layout: {
+                padding: {
+                    top: 20
+                }
+            }
+        };
+
+        const complexityChartOptions = {
+            ...chartOptions,
+            scales: {
+                ...chartOptions.scales,
+                x: {
+                    ...chartOptions.scales.x,
+                    title: {
+                        display: true,
+                        text: 'Complexity Level',
+                        font: {
+                            family: 'Gidole',
+                            size: 14,
+                            weight: 'bold'
+                        }
+                    }
+                }
+            }
+        };
+
+        // Register the datalabels plugin
+        Chart.register(ChartDataLabels);
+        
+        // Create SDLC Chart
+        const sdlcCtx = document.getElementById('sdlcChart').getContext('2d');
+        const sdlcChart = new Chart(sdlcCtx, {
+            type: 'bar',
+            data: sdlcData,
+            options: chartOptions
+        });
+
+        // Create Complexity Chart
+        const complexityCtx = document.getElementById('complexityChart').getContext('2d');
+        const complexityChart = new Chart(complexityCtx, {
+            type: 'bar',
+            data: complexityData,
+            options: complexityChartOptions
+        });
+
+
+        function downloadSDLCChart() {
+            const canvas = document.getElementById('sdlcChart');
+            
+            // Create a new canvas with white background and title
+            const downloadCanvas = document.createElement('canvas');
+            const downloadCtx = downloadCanvas.getContext('2d');
+            downloadCanvas.width = canvas.width + 100;
+            downloadCanvas.height = canvas.height + 150;
+            
+            // Fill white background
+            downloadCtx.fillStyle = 'white';
+            downloadCtx.fillRect(0, 0, downloadCanvas.width, downloadCanvas.height);
+            
+            // Add title
+            downloadCtx.fillStyle = '#2c3e50';
+            downloadCtx.font = 'bold 24px Gidole';
+            downloadCtx.textAlign = 'center';
+            downloadCtx.fillText('Software Development Requests by SDLC Stage', downloadCanvas.width / 2, 40);
+            downloadCtx.font = '18px Gidole';
+            downloadCtx.fillText('Regional Comparison', downloadCanvas.width / 2, 70);
+            
+            // Draw the chart
+            downloadCtx.drawImage(canvas, 50, 100);
+            
+            const link = document.createElement('a');
+            link.download = 'SDLC_Stage_Distribution_Analysis.png';
+            link.href = downloadCanvas.toDataURL('image/png');
+            link.click();
+        }
+
+        function downloadComplexityChart() {
+            const canvas = document.getElementById('complexityChart');
+            
+            // Create a new canvas with white background and title
+            const downloadCanvas = document.createElement('canvas');
+            const downloadCtx = downloadCanvas.getContext('2d');
+            downloadCanvas.width = canvas.width + 100;
+            downloadCanvas.height = canvas.height + 150;
+            
+            // Fill white background
+            downloadCtx.fillStyle = 'white';
+            downloadCtx.fillRect(0, 0, downloadCanvas.width, downloadCanvas.height);
+            
+            // Add title
+            downloadCtx.fillStyle = '#2c3e50';
+            downloadCtx.font = 'bold 24px Gidole';
+            downloadCtx.textAlign = 'center';
+            downloadCtx.fillText('Software Development Requests by Complexity Level', downloadCanvas.width / 2, 40);
+            downloadCtx.font = '18px Gidole';
+            downloadCtx.fillText('Regional Comparison', downloadCanvas.width / 2, 70);
+            
+            // Draw the chart
+            downloadCtx.drawImage(canvas, 50, 100);
+            
+            const link = document.createElement('a');
+            link.download = 'Complexity_Level_Distribution_Analysis.png';
+            link.href = downloadCanvas.toDataURL('image/png');
+            link.click();
+        }
+    </script>
+</body>
+</html>

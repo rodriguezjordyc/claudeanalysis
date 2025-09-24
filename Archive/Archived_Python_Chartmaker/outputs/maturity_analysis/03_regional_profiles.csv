@@ -1,0 +1,6 @@
+Rank,Region,Overall Score,Collaboration,Efficiency,Complexity,Software Requests,Level 0 Tasks,Level 0 %,Augmentation %
+1,North America,84.3,60.8,100.0,100.0,"162,382","49,535",30.5%,47.4%
+2,Europe,66.3,100.0,60.8,35.4,"144,550","31,211",21.6%,51.5%
+3,APAC,62.7,59.7,45.2,74.6,"256,643","69,281",27.0%,47.3%
+4,Latin America,26.8,0.0,26.1,54.0,"58,719","14,184",24.2%,41.1%
+5,Middle East & Africa,11.2,27.9,0.0,0.0,"64,267","10,735",16.7%,44.0%
