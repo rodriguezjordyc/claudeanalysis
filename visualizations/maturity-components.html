@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Software Maturity Components</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+    <title>AI Maturity Score Components </title>
     <style>
         @font-face {
             font-family: 'Gidole';
@@ -53,35 +51,6 @@
             font-weight: normal;
         }
 
-        .chart-container {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            padding: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .chart-title {
-            font-size: 1.8rem;
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            text-align: center;
-            font-weight: normal;
-        }
-
-        .chart-subtitle {
-            font-size: 1rem;
-            color: #7f8c8d;
-            margin-bottom: 2rem;
-            text-align: center;
-            font-weight: normal;
-        }
-
-        .chart-wrapper {
-            position: relative;
-            height: 500px;
-            margin: 2rem 0;
-        }
 
         .download-btn {
             background: #3498db;
@@ -101,43 +70,14 @@
             background: #2980b9;
         }
 
-        .insights {
-            background: #f8f9fa;
-            border-left: 4px solid #3498db;
-            padding: 1.5rem;
-            margin-top: 2rem;
-            border-radius: 0 8px 8px 0;
-        }
-
-        .insights h3 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-            font-weight: normal;
-        }
-
-        .insights ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .insights li {
-            margin-bottom: 0.5rem;
-            padding-left: 1rem;
-            position: relative;
-        }
-
-        .insights li:before {
-            content: "•";
-            color: #3498db;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
 
         .data-table {
             margin-top: 2rem;
             overflow-x: auto;
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .data-table table {
@@ -167,264 +107,155 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>AI Software Maturity Components</h1>
-            <p class="subtitle">Component Breakdown - Weighted Contributions to Final Score</p>
+            <h1>Technical AI Maturity Score Components </h1>
+            <p class="subtitle">(Weight Contribution %)</p>
         </div>
 
-        <div class="chart-container">
-            <h2 class="chart-title">AI Software Maturity Score - Component Breakdown</h2>
-            <p class="chart-subtitle">Weighted Contributions to Final Score (Balanced Weighting)</p>
-            
-            <div class="chart-wrapper">
-                <canvas id="componentsChart"></canvas>
-            </div>
-
-            <button class="download-btn" onclick="downloadChart()">Download Chart as PNG</button>
+        <button class="download-btn" onclick="downloadTable()">Download Table as PNG</button>
 
             <div class="data-table">
                 <table>
                     <thead>
                         <tr>
+                            <th>Rank</th>
                             <th>Region</th>
                             <th>Collaboration (40%)</th>
                             <th>Efficiency (20%)</th>
                             <th>Complexity (40%)</th>
-                            <th>Total Score</th>
-                            <th>Rank</th>
+                            <th style="font-weight: bold;">Total Score</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
+                            <td>#1</td>
                             <td>North America</td>
                             <td>60.8</td>
                             <td>100.0</td>
                             <td>100.0</td>
-                            <td>84.3</td>
-                            <td>#1</td>
+                            <td style="font-weight: bold;">84</td>
                         </tr>
                         <tr>
+                            <td>#2</td>
                             <td>Europe</td>
                             <td>100.0</td>
                             <td>60.8</td>
                             <td>35.4</td>
-                            <td>66.3</td>
-                            <td>#2</td>
+                            <td style="font-weight: bold;">66</td>
                         </tr>
                         <tr>
+                            <td>#3</td>
                             <td>APAC</td>
                             <td>59.7</td>
                             <td>45.2</td>
                             <td>74.6</td>
-                            <td>62.7</td>
-                            <td>#3</td>
+                            <td style="font-weight: bold;">63</td>
                         </tr>
                         <tr>
+                            <td>#4</td>
                             <td>Latin America</td>
                             <td>0.0</td>
                             <td>26.1</td>
                             <td>54.0</td>
-                            <td>26.8</td>
-                            <td>#4</td>
+                            <td style="font-weight: bold;">27</td>
                         </tr>
                         <tr>
+                            <td>#5</td>
                             <td>Middle East & Africa</td>
                             <td>27.9</td>
                             <td>0.0</td>
                             <td>0.0</td>
-                            <td>11.2</td>
-                            <td>#5</td>
+                            <td style="font-weight: bold;">11</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <div class="insights">
-                <h3>Component Leaders & Weight Impact</h3>
-                <ul>
-                    <li>Collaboration Leader: Europe (100.0) - augmentation-focused patterns</li>
-                    <li>Efficiency Leader: North America (100.0) - optimized interaction patterns</li>
-                    <li>Complexity Leader: North America (100.0) - advanced task engagement</li>
-                    <li>Europe benefits from 40% collaboration weight (collaboration leader)</li>
-                    <li>North America maintains lead through efficiency + complexity combination</li>
-                    <li>Balanced weighting rewards AI literacy alongside task sophistication</li>
-                </ul>
-            </div>
         </div>
     </div>
 
     <script>
-        // Component breakdown data from the notebook - STACKED BARS
-        const componentsData = {
-            labels: ['North America', 'Europe', 'APAC', 'Latin America', 'Middle East & Africa'],
-            datasets: [
-                {
-                    label: 'Collaboration (40%)',
-                    data: [24.3, 40.0, 23.9, 0.0, 11.2],
-                    backgroundColor: '#E74C3C',
-                    borderColor: '#E74C3C',
-                    borderWidth: 1
-                },
-                {
-                    label: 'Efficiency (20%)',
-                    data: [20.0, 12.2, 9.0, 5.2, 0.0],
-                    backgroundColor: '#3498DB',
-                    borderColor: '#3498DB',
-                    borderWidth: 1
-                },
-                {
-                    label: 'Complexity (40%)',
-                    data: [40.0, 14.2, 29.8, 21.6, 0.0],
-                    backgroundColor: '#2ECC71',
-                    borderColor: '#2ECC71',
-                    borderWidth: 1
-                }
-            ]
-        };
+function downloadTable() {
+            // Create a new canvas to render the table
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
 
-        const ctx = document.getElementById('componentsChart').getContext('2d');
-        
-        // Register the datalabels plugin
-        Chart.register(ChartDataLabels);
-        
-        const chart = new Chart(ctx, {
-            type: 'bar',
-            data: componentsData,
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    x: {
-                        stacked: true,
-                        title: {
-                            display: true,
-                            text: 'Region (Ranked by Overall Score)',
-                            font: {
-                                family: 'Gidole',
-                                size: 14,
-                                weight: 'bold'
-                            }
-                        },
-                        ticks: {
-                            font: {
-                                family: 'Gidole',
-                                size: 10
-                            }
-                        },
-                        grid: {
-                            display: false
-                        }
-                    },
-                    y: {
-                        stacked: true,
-                        title: {
-                            display: true,
-                            text: 'Score Contribution (Weighted)',
-                            font: {
-                                family: 'Gidole',
-                                size: 14,
-                                weight: 'bold'
-                            }
-                        },
-                        ticks: {
-                            font: {
-                                family: 'Gidole',
-                                size: 11
-                            }
-                        },
-                        grid: {
-                            display: false
-                        },
-                        beginAtZero: true,
-                        max: 100
-                    }
-                },
-                plugins: {
-                    title: {
-                        display: false
-                    },
-                    legend: {
-                        display: true,
-                        position: 'top',
-                        labels: {
-                            font: {
-                                family: 'Gidole',
-                                size: 12
-                            },
-                            usePointStyle: true,
-                            padding: 20
-                        }
-                    },
-                    tooltip: {
-                        enabled: false
-                    },
-                    datalabels: {
-                        display: function(context) {
-                            return context.dataset.data[context.dataIndex] > 0;
-                        },
-                        color: 'white',
-                        font: {
-                            family: 'Gidole',
-                            size: 14,
-                            weight: 'bold'
-                        },
-                        formatter: function(value, context) {
-                            return value.toFixed(1);
-                        }
-                    }
-                },
-                layout: {
-                    padding: {
-                        top: 20
-                    }
-                }
-            }
-        });
+            // Set canvas size (adjust based on table content)
+            canvas.width = 900;
+            canvas.height = 400;
 
-        // Add total scores above bars
-        chart.options.plugins.afterDraw = function(chart) {
-            const ctx = chart.ctx;
-            ctx.font = 'bold 14px Gidole';
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'bottom';
-            ctx.fillStyle = '#2c3e50';
-            
-            const totalScores = [84.3, 66.3, 62.7, 26.8, 11.2];
-            chart.data.datasets[0].data.forEach((value, index) => {
-                const meta = chart.getDatasetMeta(0);
-                const bar = meta.data[index];
-                const x = bar.x;
-                const y = bar.y - 15;
-                ctx.fillText(totalScores[index].toFixed(1), x, y);
-            });
-        };
-
-        function downloadChart() {
-            const canvas = document.getElementById('componentsChart');
-            
-            // Create a new canvas with white background and title
-            const downloadCanvas = document.createElement('canvas');
-            const downloadCtx = downloadCanvas.getContext('2d');
-            downloadCanvas.width = canvas.width + 100;
-            downloadCanvas.height = canvas.height + 150;
-            
             // Fill white background
-            downloadCtx.fillStyle = 'white';
-            downloadCtx.fillRect(0, 0, downloadCanvas.width, downloadCanvas.height);
-            
+            ctx.fillStyle = 'white';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
             // Add title
-            downloadCtx.fillStyle = '#2c3e50';
-            downloadCtx.font = 'bold 24px Gidole';
-            downloadCtx.textAlign = 'center';
-            downloadCtx.fillText('AI Software Maturity Score - Component Breakdown', downloadCanvas.width / 2, 40);
-            downloadCtx.font = '18px Gidole';
-            downloadCtx.fillText('Weighted Contributions to Final Score (Balanced Weighting)', downloadCanvas.width / 2, 70);
-            
-            // Draw the chart
-            downloadCtx.drawImage(canvas, 50, 100);
-            
+            ctx.fillStyle = '#2c3e50';
+            ctx.font = 'bold 22px Gidole, Arial, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('Technical AI Maturity Score Components ', canvas.width / 2, 40);
+            ctx.font = '16px Gidole, Arial, sans-serif';
+            ctx.fillText('(Weight Contribution %)', canvas.width / 2, 65);
+
+            // Table styling
+            const startY = 100;
+            const rowHeight = 35;
+            const colWidths = [80, 180, 140, 120, 130, 120]; // Column widths
+            const colStartX = [50, 130, 310, 450, 570, 700]; // Column start positions
+
+            // Draw table header
+            ctx.fillStyle = '#f8f9fa';
+            ctx.fillRect(50, startY, 800, rowHeight);
+            ctx.strokeStyle = '#ecf0f1';
+            ctx.lineWidth = 1;
+            ctx.strokeRect(50, startY, 800, rowHeight);
+
+            // Header text
+            ctx.fillStyle = '#2c3e50';
+            ctx.font = 'bold 14px Gidole, Arial, sans-serif';
+            ctx.textAlign = 'left';
+            const headers = ['Rank', 'Region', 'Collaboration (40%)', 'Efficiency (20%)', 'Complexity (40%)', 'Total Score'];
+            headers.forEach((header, i) => {
+                ctx.fillText(header, colStartX[i] + 10, startY + 22);
+            });
+
+            // Draw table rows
+            const rows = [
+                ['#1', 'North America', '60.8', '100.0', '100.0', '84'],
+                ['#2', 'Europe', '100.0', '60.8', '35.4', '66'],
+                ['#3', 'APAC', '59.7', '45.2', '74.6', '63'],
+                ['#4', 'Latin America', '0.0', '26.1', '54.0', '27'],
+                ['#5', 'Middle East & Africa', '27.9', '0.0', '0.0', '11']
+            ];
+
+            ctx.font = '14px Gidole, Arial, sans-serif';
+            rows.forEach((row, rowIndex) => {
+                const y = startY + (rowIndex + 1) * rowHeight;
+
+                // Alternating row background
+                if (rowIndex % 2 === 0) {
+                    ctx.fillStyle = '#fafafa';
+                    ctx.fillRect(50, y, 800, rowHeight);
+                }
+
+                // Row border
+                ctx.strokeStyle = '#ecf0f1';
+                ctx.strokeRect(50, y, 800, rowHeight);
+
+                // Cell text
+                row.forEach((cell, colIndex) => {
+                    ctx.fillStyle = '#2c3e50';
+                    if (colIndex === 5) { // Total Score column - bold
+                        ctx.font = 'bold 14px Gidole, Arial, sans-serif';
+                    } else {
+                        ctx.font = '14px Gidole, Arial, sans-serif';
+                    }
+                    ctx.fillText(cell, colStartX[colIndex] + 10, y + 22);
+                });
+            });
+
+            // Download the canvas as PNG
             const link = document.createElement('a');
-            link.download = 'AI_Software_Maturity_Components_Analysis.png';
-            link.href = downloadCanvas.toDataURL('image/png');
+            link.download = 'technicalmaturityscorecomponents.png';
+            link.href = canvas.toDataURL('image/png');
             link.click();
         }
     </script>

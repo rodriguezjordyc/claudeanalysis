@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Software Request Analysis</title>
+    <title>Technical Request Analysis</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
     <style>
@@ -139,15 +139,13 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Software Request Analysis</h1>
-            <p class="subtitle">Regional Software Development Request Patterns - SDLC Stage and Complexity Analysis</p>
+            <h1>Technical Request Analysis</h1>
+            <p class="subtitle">Technical Request Patterns</p>
         </div>
 
         <!-- SDLC Stage Distribution Chart -->
         <div class="chart-container">
-            <h2 class="chart-title">Software Development Requests by SDLC Stage</h2>
-            <p class="chart-subtitle">Regional Comparison</p>
-            
+            <h2 class="chart-title">Technical Requests by Region and SDLC Stage</h2>            
             <div class="chart-wrapper">
                 <canvas id="sdlcChart"></canvas>
             </div>
@@ -167,9 +165,7 @@
 
         <!-- Complexity Level Distribution Chart -->
         <div class="chart-container">
-            <h2 class="chart-title">Software Development Requests by Complexity Level</h2>
-            <p class="chart-subtitle">Regional Comparison</p>
-            
+            <h2 class="chart-title">Technical Requests by Complexity Level</h2>            
             <div class="chart-wrapper">
                 <canvas id="complexityChart"></canvas>
             </div>
@@ -233,7 +229,7 @@
 
         // Complexity Level data from the notebook
         const complexityData = {
-            labels: ['Level 0 (High Complexity)', 'Level 1 (Medium Complexity)', 'Level 2 (Low Complexity)'],
+            labels: ['High', 'Medium', 'Low'],
             datasets: [
                 {
                     label: 'North America',
@@ -295,7 +291,7 @@
                 tooltip: {
                     callbacks: {
                         label: function(context) {
-                            return context.dataset.label + ': ' + context.parsed.y.toFixed(1) + '%';
+                            return context.dataset.label + ': ' + context.parsed.y.toFixed(0) + '%';
                         }
                     },
                         enabled: false
@@ -309,7 +305,7 @@
                             weight: 'bold'
                         },
                         formatter: function(value, context) {
-                            return value.toFixed(1) + '%';
+                            return value.toFixed(0) + '%';
                         },
                         anchor: 'end',
                         align: 'top'
@@ -319,7 +315,7 @@
                 x: {
                     title: {
                         display: true,
-                        text: 'Software Development Lifecycle Stage',
+                        text: 'Software Development Lifecycle Stage (SDLC)',
                         font: {
                             family: 'Gidole',
                             size: 14,
@@ -339,7 +335,7 @@
                 y: {
                     title: {
                         display: true,
-                        text: 'Percentage of Total Requests (%)',
+                        text: '% of Total Requests',
                         font: {
                             family: 'Gidole',
                             size: 14,
@@ -421,15 +417,13 @@
             downloadCtx.fillStyle = '#2c3e50';
             downloadCtx.font = 'bold 24px Gidole';
             downloadCtx.textAlign = 'center';
-            downloadCtx.fillText('Software Development Requests by SDLC Stage', downloadCanvas.width / 2, 40);
-            downloadCtx.font = '18px Gidole';
-            downloadCtx.fillText('Regional Comparison', downloadCanvas.width / 2, 70);
-            
+            downloadCtx.fillText('Technical Requests by Region and SDLC Stage', downloadCanvas.width / 2, 40);
+            downloadCtx.font = '18px Gidole';            
             // Draw the chart
             downloadCtx.drawImage(canvas, 50, 100);
             
             const link = document.createElement('a');
-            link.download = 'SDLC_Stage_Distribution_Analysis.png';
+            link.download = 'sdlcanalysis.png';
             link.href = downloadCanvas.toDataURL('image/png');
             link.click();
         }
@@ -451,15 +445,13 @@
             downloadCtx.fillStyle = '#2c3e50';
             downloadCtx.font = 'bold 24px Gidole';
             downloadCtx.textAlign = 'center';
-            downloadCtx.fillText('Software Development Requests by Complexity Level', downloadCanvas.width / 2, 40);
-            downloadCtx.font = '18px Gidole';
-            downloadCtx.fillText('Regional Comparison', downloadCanvas.width / 2, 70);
-            
+            downloadCtx.fillText('Technical Requests by Complexity Level', downloadCanvas.width / 2, 40);
+            downloadCtx.font = '18px Gidole';            
             // Draw the chart
             downloadCtx.drawImage(canvas, 50, 100);
             
             const link = document.createElement('a');
-            link.download = 'Complexity_Level_Distribution_Analysis.png';
+            link.download = 'complexityanalysis.png';
             link.href = downloadCanvas.toDataURL('image/png');
             link.click();
         }

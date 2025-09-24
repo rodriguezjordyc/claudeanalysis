@@ -167,13 +167,12 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Regional Efficiency Analysis</h1>
-            <p class="subtitle">AI Utilization Length by Region - Volume-Weighted Length Indices</p>
+            <h1>Technical AI Token Analysis</h1>
+            <p class="subtitle">Technical AI Token Index by Region</p>
         </div>
 
         <div class="chart-container">
-            <h2 class="chart-title">AI Utilization Length by Region</h2>
-            <p class="chart-subtitle">Volume-Weighted Length Indices</p>
+            <h2 class="chart-title">Technical AI Token Index by Region</h2>
             
             <div class="chart-wrapper">
                 <canvas id="efficiencyChart"></canvas>
@@ -185,7 +184,7 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Length Metric</th>
+                            <th>Software Development Metric</th>
                             <th>N. America</th>
                             <th>Latin Am.</th>
                             <th>Europe</th>
@@ -196,39 +195,39 @@
                     <tbody>
                         <tr>
                             <td>Prompt Length Index</td>
-                            <td>1.415</td>
-                            <td>1.778</td>
-                            <td>1.865</td>
-                            <td>2.178</td>
-                            <td>1.915</td>
+                            <td>2.653</td>
+                            <td>2.989</td>
+                            <td>2.831</td>
+                            <td>3.032</td>
+                            <td>2.882</td>
                         </tr>
                         <tr>
                             <td>Completion Length Index</td>
-                            <td>1.108</td>
-                            <td>1.372</td>
-                            <td>1.310</td>
-                            <td>1.632</td>
-                            <td>1.442</td>
+                            <td>1.613</td>
+                            <td>1.872</td>
+                            <td>1.754</td>
+                            <td>2.059</td>
+                            <td>1.834</td>
                         </tr>
                         <tr>
                             <td>Cost Index</td>
-                            <td>1.157</td>
-                            <td>1.330</td>
-                            <td>1.373</td>
-                            <td>1.555</td>
-                            <td>1.428</td>
+                            <td>1.751</td>
+                            <td>1.954</td>
+                            <td>1.854</td>
+                            <td>2.005</td>
+                            <td>1.892</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
             <div class="insights">
-                <h3>Key Regional Observations</h3>
+                <h3>Key Regional Observations - Software Development</h3>
                 <ul>
-                    <li>Length indices >1.0 indicate above-average utilization sophistication</li>
-                    <li>North America shows balanced length across all dimensions</li>
-                    <li>APAC demonstrates high input length with moderate output length</li>
-                    <li>Regional patterns suggest different AI utilization strategies</li>
+                    <li>Software Development indices >1.0 indicate above-average token sophistication</li>
+                    <li>North America shows balanced efficiency across all software development dimensions</li>
+                    <li>MEA demonstrates highest software development token usage intensity</li>
+                    <li>Regional patterns suggest different software development AI strategies and maturity levels</li>
                 </ul>
             </div>
         </div>
@@ -237,39 +236,39 @@
     <script>
         // Regional efficiency data from the notebook
         const efficiencyData = {
-            labels: ['Prompt Length Index', 'Completion Length Index', 'Cost Index'],
+            labels: ['Prompt Index', 'Completion Index', 'Cost Index'],
             datasets: [
                 {
                     label: 'North America',
-                    data: [1.415, 1.108, 1.157],
+                    data: [2.653, 1.613, 1.751],
                     backgroundColor: '#2E86AB',
                     borderColor: '#2E86AB',
                     borderWidth: 1
                 },
                 {
                     label: 'Latin America',
-                    data: [1.778, 1.372, 1.330],
+                    data: [2.989, 1.872, 1.954],
                     backgroundColor: '#A23B72',
                     borderColor: '#A23B72',
                     borderWidth: 1
                 },
                 {
                     label: 'Europe',
-                    data: [1.865, 1.310, 1.373],
+                    data: [2.831, 1.754, 1.854],
                     backgroundColor: '#F18F01',
                     borderColor: '#F18F01',
                     borderWidth: 1
                 },
                 {
                     label: 'Middle East & Africa',
-                    data: [2.178, 1.632, 1.555],
+                    data: [3.032, 2.059, 2.005],
                     backgroundColor: '#C73E1D',
                     borderColor: '#C73E1D',
                     borderWidth: 1
                 },
                 {
                     label: 'APAC',
-                    data: [1.915, 1.442, 1.428],
+                    data: [2.882, 1.834, 1.892],
                     backgroundColor: '#5C946E',
                     borderColor: '#5C946E',
                     borderWidth: 1
@@ -326,7 +325,7 @@
                     x: {
                         title: {
                             display: true,
-                            text: 'Index Dimension',
+                            text: 'Dimension',
                             font: {
                                 family: 'Gidole',
                                 size: 14,
@@ -346,7 +345,7 @@
                     y: {
                         title: {
                             display: true,
-                            text: 'Length Index',
+                            text: 'Index',
                             font: {
                                 family: 'Gidole',
                                 size: 14,
@@ -390,15 +389,14 @@
             downloadCtx.fillStyle = '#2c3e50';
             downloadCtx.font = 'bold 24px Gidole';
             downloadCtx.textAlign = 'center';
-            downloadCtx.fillText('AI Utilization Length by Region', downloadCanvas.width / 2, 40);
+            downloadCtx.fillText('Technical AI Token Index by Region', downloadCanvas.width / 2, 40);
             downloadCtx.font = '18px Gidole';
-            downloadCtx.fillText('Volume-Weighted Length Indices', downloadCanvas.width / 2, 70);
             
             // Draw the chart
             downloadCtx.drawImage(canvas, 50, 100);
             
             const link = document.createElement('a');
-            link.download = 'Regional_AI_Utilization_Length_Analysis.png';
+            link.download = 'tokenefficiencyanalysis.png';
             link.href = downloadCanvas.toDataURL('image/png');
             link.click();
         }

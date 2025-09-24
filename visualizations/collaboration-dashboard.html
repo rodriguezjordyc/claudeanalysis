@@ -140,14 +140,12 @@
     <div class="container">
         <div class="header">
             <h1>Regional Collaboration Analysis</h1>
-            <p class="subtitle">Human-AI Collaboration Patterns by Region - Comparative Analysis</p>
+            <p class="subtitle">Human-AI Collaboration Patterns by Region</p>
         </div>
 
         <div class="chart-container">
-            <h2 class="chart-title">Human-AI Collaboration Patterns by Region</h2>
-            <p class="chart-subtitle">Comparative Analysis</p>
-            
-            <div class="chart-wrapper">
+            <h2 class="chart-title">Human-AI Collaboration Patterns by Region</h2>            
+        <div class="chart-wrapper">
                 <canvas id="collaborationChart"></canvas>
             </div>
 
@@ -247,7 +245,7 @@
                             weight: 'bold'
                         },
                         formatter: function(value, context) {
-                            return value.toFixed(1) + '%';
+                            return value.toFixed(0) + '%';
                         },
                         anchor: 'end',
                         align: 'top'
@@ -277,7 +275,7 @@
                     y: {
                         title: {
                             display: true,
-                            text: 'Percentage of Total Interactions (%)',
+                            text: '% of Total Interactions',
                             font: {
                                 family: 'Gidole',
                                 size: 14,
@@ -323,14 +321,12 @@
             downloadCtx.font = 'bold 24px Gidole';
             downloadCtx.textAlign = 'center';
             downloadCtx.fillText('Human-AI Collaboration Patterns by Region', downloadCanvas.width / 2, 40);
-            downloadCtx.font = '18px Gidole';
-            downloadCtx.fillText('Comparative Analysis', downloadCanvas.width / 2, 70);
-            
+            downloadCtx.font = '18px Gidole';            
             // Draw the chart
             downloadCtx.drawImage(canvas, 50, 100);
             
             const link = document.createElement('a');
-            link.download = 'Regional_Collaboration_Patterns_Analysis.png';
+            link.download = 'collaborationanalysis.png';
             link.href = downloadCanvas.toDataURL('image/png');
             link.click();
         }

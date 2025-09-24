@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Software Maturity Score</title>
+    <title>Technical AI Maturity Score</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
     <style>
@@ -150,14 +150,11 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>AI Software Maturity Score</h1>
-            <p class="subtitle">Regional Rankings - Composite Index (0-100 Scale)</p>
+            <h1>Technical AI Maturity Score</h1>
         </div>
 
         <div class="chart-container">
-            <h2 class="chart-title">AI Software Development Maturity Score by Region</h2>
-            <p class="chart-subtitle">Composite Index (0-100 Scale)</p>
-            
+            <h2 class="chart-title">Technical AI Maturity Score by Region</h2>            
             <div class="chart-wrapper">
                 <canvas id="maturityChart"></canvas>
             </div>
@@ -180,12 +177,12 @@
     <script>
         // Maturity score data from the notebook
         const maturityData = {
-            labels: ['Middle East & Africa', 'Latin America', 'APAC', 'Europe', 'North America'],
+            labels: ['North America', 'Europe', 'APAC', 'Latin America', 'Middle East & Africa'],
             datasets: [{
                 label: 'Maturity Score',
-                data: [11.2, 26.8, 62.7, 66.3, 84.3],
-                backgroundColor: ['#C73E1D', '#A23B72', '#5C946E', '#F18F01', '#2E86AB'],
-                borderColor: ['#C73E1D', '#A23B72', '#5C946E', '#F18F01', '#2E86AB'],
+                data: [84.3, 66.3, 62.7, 26.8, 11.2],
+                backgroundColor: ['#2E86AB', '#F18F01', '#5C946E', '#A23B72', '#C73E1D'],
+                borderColor: ['#2E86AB', '#F18F01', '#5C946E', '#A23B72', '#C73E1D'],
                 borderWidth: 1
             }]
         };
@@ -212,7 +209,7 @@
                     tooltip: {
                         callbacks: {
                             label: function(context) {
-                                return context.parsed.x.toFixed(1) + ' points';
+                                return context.parsed.x.toFixed(0) + ' points';
                             }
                         },
                         enabled: false
@@ -226,7 +223,7 @@
                             weight: 'bold'
                         },
                         formatter: function(value, context) {
-                            return value.toFixed(1);
+                            return value.toFixed(0);
                         },
                         anchor: 'end',
                         align: 'end'
@@ -302,15 +299,13 @@
             downloadCtx.fillStyle = '#2c3e50';
             downloadCtx.font = 'bold 24px Gidole';
             downloadCtx.textAlign = 'center';
-            downloadCtx.fillText('AI Software Development Maturity Score by Region', downloadCanvas.width / 2, 40);
-            downloadCtx.font = '18px Gidole';
-            downloadCtx.fillText('Composite Index (0-100 Scale)', downloadCanvas.width / 2, 70);
-            
+            downloadCtx.fillText('Technical AI Maturity Score by Region', downloadCanvas.width / 2, 40);
+            downloadCtx.font = '18px Gidole';            
             // Draw the chart
             downloadCtx.drawImage(canvas, 50, 100);
             
             const link = document.createElement('a');
-            link.download = 'AI_Software_Maturity_Score_Rankings.png';
+            link.download = 'technicalmaturityscore.png';
             link.href = downloadCanvas.toDataURL('image/png');
             link.click();
         }
