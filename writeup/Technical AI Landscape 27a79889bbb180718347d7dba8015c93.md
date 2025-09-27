@@ -24,7 +24,7 @@ This analysis reveals patterns in AI adoption across regions, enabling a combine
 
 Why does this Technical AI Maturity Score  matter? Because software development drives economic growth—both for entire countries and individual people. Individuals are using Replit, Vercel, and Lovable to build businesses that make real money. Development teams are shipping products faster than ever with support from agentic ecosystems like Cursor, Factory, and Codex.
 
-There are, of course, limitations in the data and methodology, as well as economic and social factors that influence regional outcomes (see Appendix A). Anthropic’s report shares an objective view of AI diffusion globally but abstains from filling in the blanks on implications. These results hopefully catalyze conversations that fills in those blanks.
+There are, of course, limitations in the data and methodology, as well as economic and social factors that influence regional outcomes (see Appendix A). Anthropic’s report shares an objective view of AI diffusion globally but abstains from filling in the blanks on implications. These results hopefully catalyze conversations that fill in those blanks.
 
 Understanding how well different regions use AI for coding tells us who's best positioned to capture the economic benefits AI creates. The AI Maturity Score isn't perfect—there's way more to the story—but it gives us a starting point to understand regional positioning. 
 
@@ -52,7 +52,7 @@ Request complexity data shows big differences in the kinds of problems developer
 
 ![sdlcanalysis.png](Technical%20AI%20Landscape%2027a79889bbb180718347d7dba8015c93/sdlcanalysis.png)
 
-Additionally, mapping technical requests to different stages of the software development lifecycle, APAC and Middle East & Africa rely more heavily on AI during the testing and QA stages, whereas Europe, Latin America, and North America rely more heavily on AI during the implementation and coding stages
+Additionally, when mapping technical requests to different stages of the software development lifecycle, APAC and Middle East & Africa rely more heavily on AI during the testing and QA stages, whereas Europe, Latin America, and North America rely more heavily on AI during the implementation and coding stages
 
 ### Token Efficiency
 
@@ -75,7 +75,7 @@ The Technical AI Maturity Score combines all three factors into one ranking:
 
 ![technicalmaturityscorecomponents.png](Technical%20AI%20Landscape%2027a79889bbb180718347d7dba8015c93/technicalmaturityscorecomponents.png)
 
-This metric rewards regions that use AI to augment developers (not their tasks), tackle hard problems, and do it efficiently—giving us a better picture than each component independently.
+This metric rewards regions that use AI to augment developers' capabilities, tackle hard problems, and do it efficiently—giving us a better picture than each component independently.
 
 ## Three Dimensions of Technical AI Integration
 
@@ -136,7 +136,7 @@ Regional profiles intend to draw different paths towards economic success in an 
 | Risk | Efficiency gap may compound into permanent economic disadvantage |
 | --- | --- |
 | Opportunity | Leapfrog traditional adoption curves with sophistication-first strategies |
-| Strategic Focus | Targeted complexity complexity engagement training |
+| Strategic Focus | Targeted complexity engagement training |
 
 ### For AI Companies
 
@@ -150,7 +150,7 @@ SDLC task distribution reveals deeper cultural differences than language localiz
 
 *Strategic Positioning*
 
-The efficiency gap in emerging regions creates both risk and opportunity for AI startups. Companies that help Automation Seekers transition to complexity-embracing behaviors could develop strong, local partnerships, but those reinforcing the "automation trap" risk limiting long-term market potential. There is a tradeoff optimizing for viral adoption in emerging regions or investing in elevating regional AI maturity—a strategic choice that determines sustainable competitive advantage versus short-term growth.
+The efficiency gap in emerging regions creates both risk and opportunity for AI startups. Companies that help Automation Seekers transition to complexity-embracing behaviors could develop strong, local partnerships, but those reinforcing the "automation trap" risk limiting long-term market potential. There is a tradeoff between optimizing for viral adoption in emerging regions or investing in elevating regional AI maturity—a strategic choice that determines sustainable competitive advantage versus short-term growth.
 
 ## Appendix A
 
@@ -158,7 +158,7 @@ Potential confounders in results (non-exhaustive)
 
 | Adoption Stage | adoption curve position |
 | --- | --- |
-| Economic Access | pricing power, enterprise and individuals’ budget allocation vary |
+| Economic Access | pricing power, enterprises' and individuals' budget allocation vary |
 | Infrastructure Bottlenecks | internet and device capabilities shape usage |
 | Cultural-Professional Limitations | varying risk tolerance levels for tool experimentation, regions with different documentation traditions may appear less “token efficient” |
 | Sample Size and Composition | unknown developer vs non-developer share using Claude for technical tasks, different sector concentration across regions |
