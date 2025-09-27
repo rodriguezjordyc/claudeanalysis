@@ -154,7 +154,7 @@
         </div>
 
         <div class="chart-container">
-            <h2 class="chart-title">Technical AI Maturity Score by Region</h2>            
+            <h2 class="chart-title">Technical AI Maturity Score</h2>            
             <div class="chart-wrapper">
                 <canvas id="maturityChart"></canvas>
             </div>
@@ -299,7 +299,7 @@
             downloadCtx.fillStyle = '#2c3e50';
             downloadCtx.font = 'bold 24px Gidole';
             downloadCtx.textAlign = 'center';
-            downloadCtx.fillText('Technical AI Maturity Score by Region', downloadCanvas.width / 2, 40);
+            downloadCtx.fillText('Technical AI Maturity Score', downloadCanvas.width / 2, 40);
             downloadCtx.font = '18px Gidole';            
             // Draw the chart
             downloadCtx.drawImage(canvas, 50, 100);

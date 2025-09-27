@@ -140,11 +140,11 @@
     <div class="container">
         <div class="header">
             <h1>Regional Collaboration Analysis</h1>
-            <p class="subtitle">Human-AI Collaboration Patterns by Region</p>
+            <p class="subtitle">Human-AI Collaboration Patterns</p>
         </div>
 
         <div class="chart-container">
-            <h2 class="chart-title">Human-AI Collaboration Patterns by Region</h2>
+            <h2 class="chart-title">Human-AI Collaboration Patterns</h2>
         <div class="chart-wrapper">
                 <canvas id="collaborationChart"></canvas>
             </div>
@@ -164,7 +164,7 @@
 
         <div class="chart-container">
             <h2 class="chart-title">Automation vs Augmentation Collaboration Patterns</h2>
-            <p class="chart-subtitle">Aggregated collaboration patterns showing automation-leaning vs augmentation-leaning tendencies by region</p>
+            <p class="chart-subtitle">Aggregated collaboration patterns showing automation-leaning vs augmentation-leaning tendencies</p>
             <div class="chart-wrapper">
                 <canvas id="aggregatedChart"></canvas>
             </div>
@@ -475,7 +475,7 @@
             downloadCtx.fillStyle = '#2c3e50';
             downloadCtx.font = 'bold 24px Gidole';
             downloadCtx.textAlign = 'center';
-            downloadCtx.fillText('Human-AI Collaboration Patterns by Region', downloadCanvas.width / 2, 40);
+            downloadCtx.fillText('Human-AI Collaboration Patterns', downloadCanvas.width / 2, 40);
             downloadCtx.font = '18px Gidole';            
             // Draw the chart
             downloadCtx.drawImage(canvas, 50, 100);

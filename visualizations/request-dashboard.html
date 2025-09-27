@@ -145,7 +145,7 @@
 
         <!-- SDLC Stage Distribution Chart -->
         <div class="chart-container">
-            <h2 class="chart-title">Technical Requests by Region and SDLC Stage</h2>            
+            <h2 class="chart-title">Technical Requests Across SDLC Stage</h2>            
             <div class="chart-wrapper">
                 <canvas id="sdlcChart"></canvas>
             </div>
@@ -165,7 +165,7 @@
 
         <!-- Complexity Level Distribution Chart -->
         <div class="chart-container">
-            <h2 class="chart-title">Technical Requests by Complexity Level</h2>            
+            <h2 class="chart-title">Technical Requests</h2>            
             <div class="chart-wrapper">
                 <canvas id="complexityChart"></canvas>
             </div>
@@ -417,7 +417,7 @@
             downloadCtx.fillStyle = '#2c3e50';
             downloadCtx.font = 'bold 24px Gidole';
             downloadCtx.textAlign = 'center';
-            downloadCtx.fillText('Technical Requests by Region and SDLC Stage', downloadCanvas.width / 2, 40);
+            downloadCtx.fillText('Technical Requests', downloadCanvas.width / 2, 40);
             downloadCtx.font = '18px Gidole';            
             // Draw the chart
             downloadCtx.drawImage(canvas, 50, 100);
@@ -445,7 +445,7 @@
             downloadCtx.fillStyle = '#2c3e50';
             downloadCtx.font = 'bold 24px Gidole';
             downloadCtx.textAlign = 'center';
-            downloadCtx.fillText('Technical Requests by Complexity Level', downloadCanvas.width / 2, 40);
+            downloadCtx.fillText('Technical Requests', downloadCanvas.width / 2, 40);
             downloadCtx.font = '18px Gidole';            
             // Draw the chart
             downloadCtx.drawImage(canvas, 50, 100);
